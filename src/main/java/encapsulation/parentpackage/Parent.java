@@ -3,23 +3,28 @@ package encapsulation.parentpackage;
 import java.time.LocalDate;
 
 public class Parent {
+    public static final String a = "a";
+    protected String b = "b";
+    String c = "c";
+    private String d = "d";
 
     /**
      * требует абстрактоного класса или интерфейса. Методы интерфейса абстрактные по умолчанию.
      */
     // public abstract void anAbstractMethod() ;
-
     public synchronized void aSynchronizedMethod() {
     }
 
     public final void aFinalMethod() {
-        System.out.println("A final method from " + this.getClass().getName());
+
+        System.out.println("A final method from " + this.getClass().getName() + d + a);
     }
 
-    public static void staticMethod(String somethingToSay) {
+    // принимает только статические переменные
+    public static void staticMethod(final String somethingToSay) {
         System.out.println("Static method in "
                 + Parent.class.getName()
-                + " says: " + somethingToSay);
+                + " says: " + somethingToSay + a );
     }
 
     /**
