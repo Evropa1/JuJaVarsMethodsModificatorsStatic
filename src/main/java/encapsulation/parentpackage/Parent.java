@@ -2,16 +2,23 @@ package encapsulation.parentpackage;
 
 import java.time.LocalDate;
 
-public class Parent {
+
+ public class Parent {
     public static final String a = "a";
+    public static Integer integer;
     protected String b = "b";
     String c = "c";
     private String d = "d";
 
+
+    static {
+        integer = 1;
+    }
+
     /**
      * требует абстрактоного класса или интерфейса. Методы интерфейса абстрактные по умолчанию.
      */
-    // public abstract void anAbstractMethod() ;
+    //public abstract void anAbstractMethod() ;
     public synchronized void aSynchronizedMethod() {
     }
 
@@ -24,7 +31,7 @@ public class Parent {
     public static void staticMethod(final String somethingToSay) {
         System.out.println("Static method in "
                 + Parent.class.getName()
-                + " says: " + somethingToSay + a );
+                + " says: " + somethingToSay + a);
     }
 
     /**
@@ -63,7 +70,7 @@ public class Parent {
      * (parameter) double somethingToSay - принимает параметр строчного типа
      * (parameter) long... longs - массив из любого количества элементов типа long, начиная с нуля
      */
-    public int aProtectedMethod(double somethingToSay, long... longs) {
+    protected int aProtectedMethod(double somethingToSay, long... longs) {
         //тело
         int integer = 1;
         System.out.println("A method in "
@@ -81,19 +88,28 @@ public class Parent {
      * (parameter) LocalDate somethingToSay - принимает параметр строчного типа
      * (throws) IllegalArgumentException - в процессе выполнения метода может случится исключение
      */
-    LocalDate aPackagePrivateDefaultMethod(LocalDate somethingToSay)
-            throws Exception {
+    LocalDate aPackagePrivateDefaultMethod(final LocalDate somethingToSay) throws Exception {
         //тело
-        int integer = 1;
+        final int integer = 1;
+
         System.out.println("A method in "
                 + this.getClass().getName()
                 + " says: " + integer
                 + ". " + somethingToSay);
+
+        String outside;
+
         if (somethingToSay.isAfter(LocalDate.now())) {
-            throw new IllegalArgumentException("Wrong date");
+            outside = "Hi";
+            return LocalDate.now();
+            //throw new IllegalArgumentException("Wrong date");
         } else if (somethingToSay.isEqual(LocalDate.now())) {
+            outside = "No";
             throw new Exception("You've won the lotery!");
-        }
+        } else outside = "Nothing";
+
+        System.out.println(outside);
+
         //возвращаемый тип
         return somethingToSay;
     }
@@ -105,4 +121,41 @@ public class Parent {
         LocalDate myLocalDate = parent.aPackagePrivateDefaultMethod(LocalDate.now());
         LocalDate myPrivateLocalDate = parent.aPrivateMethod();
     }
+
+    public LocalDate testAll(final LocalDate somethingToSay) throws Exception {
+        //тело
+        final int integer = 1;
+
+        System.out.println("A method in "
+                + this.getClass().getName()
+                + " says: " + integer
+                + ". " + somethingToSay);
+
+        String outside;
+
+        if (somethingToSay.isAfter(LocalDate.now())) {
+            outside = "Hi";
+            System.out.println("OUTSIDE VAR:" + outside);
+            return LocalDate.now();
+            //throw new IllegalArgumentException("Wrong date");
+        } else if (somethingToSay.isEqual(LocalDate.now())) {
+            outside = "No";
+            System.out.println("OUTSIDE VAR:" + outside);
+            throw new Exception("You've won the lotery!");
+        } else outside = "Nothing";
+
+        System.out.println("OUTSIDE VAR:" + outside);
+
+        //возвращаемый тип
+        return somethingToSay;
+    }
+
+    private class MyInnerClass{
+        String myvar;
+
+        public MyInnerClass(String myvar) {
+            this.myvar = myvar;
+        }
+    }
+
 }

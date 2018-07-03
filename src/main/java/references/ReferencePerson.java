@@ -23,6 +23,7 @@ public class ReferencePerson {
     public static void weekReference() {
         // примером, вы работаете с БД и создали HashMap (WeakHashMap) с коннекшинами и пользователями
         class DBConnection {
+
         }
         //создаем StrongReference DBConnection dbCon ссылку man и выделяем память в HEAP на него
         DBConnection dbCon = new DBConnection();

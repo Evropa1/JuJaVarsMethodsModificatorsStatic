@@ -5,7 +5,7 @@ import org.junit.Test;
 public class VarargsOverloadingTests {
 
     public void overloadedMethod(int somethingToSay, int... ints) {
-        System.out.println(somethingToSay);
+       // System.out.println(somethingToSay);
         for (int anInt : ints) {
             System.out.println(anInt);
         }
@@ -16,10 +16,10 @@ public class VarargsOverloadingTests {
     }
 
 
-   /* public void overloadedMethod(int... ints) {
-        overloadedMethod(1, 12);
-    }
-*/
+/*    public void overloadedMethod(int... ints) {
+        overloadedMethod(11, 3);
+    }*/
+
     /**
      * vararg param должен быть последним
      */

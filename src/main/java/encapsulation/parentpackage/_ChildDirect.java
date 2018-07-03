@@ -2,7 +2,7 @@ package encapsulation.parentpackage;
 
 import java.time.LocalDate;
 
-class _ChildDirect extends Parent {
+ class _ChildDirect extends Parent {
     private void letsTryToUseOtherMethodsAsTheyAre() throws Exception {
         System.out.println(Parent.a);
         this.aPublicMethod("I do important things.");
@@ -19,6 +19,7 @@ class _ChildDirect extends Parent {
         int i = parent.aProtectedMethod(1.0);
         LocalDate myLocalDate = parent.aPackagePrivateDefaultMethod(LocalDate.now());
         //LocalDate myPrivateLocalDate = parent.aPrivateMethod();
+        parent.toString();
     }
 
     // расширили доступ дефолтному методу -) public
@@ -32,5 +33,7 @@ class _ChildDirect extends Parent {
     public String toString() {
         return "a child of a parent speaks";
     }
+
+
 }
 
