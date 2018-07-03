@@ -1,15 +1,8 @@
-package incapsulation.parentpackage.insidepackage;
+package encapsulation.otherpackage;
 
-import incapsulation.parentpackage.Parent;
+import encapsulation.parentpackage.Parent;
 
-public class InsideClass {
-    private void letsTryToUseOtherMethodsAsTheyAre() {
-        //aPublicMethod("I do important things.");
-        //aProtectedMethod(1.0);
-        //aPackagePrivadeDefaultMethod(LocalDate.now());
-        //aPrivateMethod();
-    }
-
+public class _ChildUndirect extends Parent {
     private void letsTryToUseOtherMethodsFromInstance() {
         Parent parent = new Parent();
         parent.aPublicMethod("I do important things.");
@@ -18,5 +11,11 @@ public class InsideClass {
         //LocalDate myPrivateLocalDate = parent.aPrivateMethod();
     }
 
+    private void letsTryToUseOtherMethodsAsTheyAre() {
+        aPublicMethod("I do important things.");
+        aProtectedMethod(1.0);
+        //aPackagePrivadeDefaultMethod(LocalDate.now());
+        //aPrivateMethod();
+    }
 
 }

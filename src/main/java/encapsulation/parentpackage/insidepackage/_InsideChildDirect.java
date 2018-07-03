@@ -1,6 +1,6 @@
-package incapsulation.parentpackage.insidepackage;
+package encapsulation.parentpackage.insidepackage;
 
-import incapsulation.parentpackage.Parent;
+import encapsulation.parentpackage.Parent;
 
 public class _InsideChildDirect extends Parent {
     private void letsTryToUseOtherMethodsAsTheyAre() {

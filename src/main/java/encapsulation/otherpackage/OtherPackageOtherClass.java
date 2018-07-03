@@ -1,6 +1,6 @@
-package incapsulation.otherpackage;
+package encapsulation.otherpackage;
 
-import incapsulation.parentpackage.Parent;
+import encapsulation.parentpackage.Parent;
 
 public class OtherPackageOtherClass {
     private void letsTryToUseOtherMethodsFromInstance() {
